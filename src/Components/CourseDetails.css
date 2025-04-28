@@ -1,0 +1,47 @@
+.card-indigo {
+    border-top: 5px solid #6610f2;
+  }
+  .card-blue {
+    border-top: 5px solid #0d6efd;
+  }
+  .card-yellow {
+    border-top: 5px solid #ffc107;
+  }
+  .card-green {
+    border-top: 5px solid #198754;
+    margin-top: 50px;
+  }
+  .card-red {
+    border-top: 5px solid #dc3545;
+    margin-top: 50px;
+  }
+  .card-purple {
+    border-top: 5px solid #6f42c1;
+    margin-top: 50px;
+  }
+  .mt-auto {
+   
+    justify-content: center; /* or space-between depending on look */
+    padding: 10px;
+    margin:0  110px;
+  }
+.course-wrapper{
+  font-weight: bolder;
+}
+ 
+.card-text{
+  color: black;
+  
+}
+.card-title fw-bold{
+  color: black;
+}
+h1{
+  color: black;
+}
+h5{
+  color: black;
+  text-align: center;
+}
+  
+  
