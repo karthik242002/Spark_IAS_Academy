@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom"; // Needed for active links
+import { useLocation, Link } from "react-router-dom"; // Use Link for navigation
 import image1 from "../assets/image1.jpg";
 import screen1 from "../assets/screen.png";
 import AboutPage from "./AboutPage";
@@ -15,23 +15,19 @@ export default function LandingPage() {
 
     const bootstrapCSS = document.createElement("link");
     bootstrapCSS.rel = "stylesheet";
-    bootstrapCSS.href =
-      "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css";
+    bootstrapCSS.href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css";
     head.appendChild(bootstrapCSS);
 
     const jqueryScript = document.createElement("script");
-    jqueryScript.src =
-      "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js";
+    jqueryScript.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js";
     jqueryScript.async = true;
     head.appendChild(jqueryScript);
 
     const bootstrapJS = document.createElement("script");
-    bootstrapJS.src =
-      "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js";
+    bootstrapJS.src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js";
     bootstrapJS.async = true;
     head.appendChild(bootstrapJS);
 
-    // Scroll smooth + Navbar hover styles
     const style = document.createElement("style");
     style.innerHTML = `
       html {
@@ -39,7 +35,7 @@ export default function LandingPage() {
       }
 
       .navbar-nav > li > a {
-        background-color: transparent !important; /* remove gray */
+        background-color: transparent !important;
         transition: all 0.3s ease;
         position: relative;
       }
@@ -49,19 +45,17 @@ export default function LandingPage() {
         position: absolute;
         width: 100%;
         height: 2px;
-        background-color: #d9534f; /* underline color (same as 'Contact us' button) */
+        background-color: #d9534f;
         bottom: 5px;
         left: 0;
       }
-       
 
       .navbar-nav > li.active > a {
         font-weight: bold;
-        color: #d9534f !important; /* active link color */
+        color: #d9534f !important;
         background-color: transparent !important;
       }
 
-      /* Optional: on hover also change link color */
       .navbar-nav > li > a:hover {
         color: #d9534f;
       }
@@ -103,7 +97,7 @@ export default function LandingPage() {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="/">
+            <Link className="navbar-brand" to="/">
               <img
                 src={screen1}
                 alt="Logo"
@@ -113,49 +107,55 @@ export default function LandingPage() {
                   display: "inline-block",
                 }}
               />
-            </a>
+            </Link>
           </div>
           <div className="collapse navbar-collapse" id="myNavbar">
             <ul className="nav navbar-nav navbar-right">
               <li className={location.pathname === "/" ? "active" : ""}>
-                <a href="/">Home</a>
+                <Link to="/">Home</Link>
               </li>
               <li className={location.pathname === "/about" ? "active" : ""}>
-                <a href="/about">About</a>
+                <Link to="/about">About</Link>
               </li>
               <li className={location.pathname === "/course" ? "active" : ""}>
-                <a href="/course">Courses</a>
+                <Link to="/course">Courses</Link>
               </li>
               <li className={location.pathname === "/partners" ? "active" : ""}>
-                <a href="/partners">Partnerships</a>
+                <Link to="/partners">Partnerships</Link>
               </li>
               <li>
-                <button
-                  href="/contact"
-                  className="btn btn-danger btn-lg navbar-btn contact"
+                <Link
+                  to="/contact"
+                  className="btn btn-danger navbar-btn"
                   style={{
                     padding: "8px 20px",
                     marginLeft: "15px",
                     borderRadius: "30px",
+                    fontSize: "16px",
+                    
+                    backgroundColor: "#d9534f",
+                    border: "none",
+                    display: "inline-block",
+                    textAlign: "center",
+                    textDecoration: "none",
+                    
                   }}
                 >
                   Contact us
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
         </div>
       </nav>
 
-      {/* Sections */}
-      <div id="home" className="container" style={{ padding: "60px 15px" }}>
-       
       {/* Hero Section */}
       <div id="home" className="container" style={{ padding: "60px 15px" }}>
         <div className="row" style={{ alignItems: "center" }}>
           <div className="col-md-6 text-left">
             <h1 style={{ fontSize: "38px", fontWeight: "bold" }}>
-              Empowering Aspirants in Tiruttani with <span style={{ color: "#d9534f" }}>adda247</span>
+              Empowering Aspirants in Tiruttani with{" "}
+              <span style={{ color: "#d9534f" }}>adda247</span>
             </h1>
             <p className="lead" style={{ color: "#d9534f", margin: "20px 0" }}>
               IN TNPSC, BANKING, SSC, RAILWAYS, POLICE, NEET!
@@ -163,11 +163,13 @@ export default function LandingPage() {
             <h3 style={{ fontWeight: "400" }}>
               Your Neighborhood Coaching backed by India's No.1 edTech platform
             </h3>
+
             <a
               href="#get-started"
               className="btn btn-danger btn-lg"
               style={{
-                marginTop: "25px",
+                margin: "25px",
+                marginTop: "30px",
                 padding: "12px 30px",
                 borderRadius: "30px",
               }}
@@ -191,14 +193,16 @@ export default function LandingPage() {
           </div>
         </div>
       </div>
-      </div>
 
+      {/* Getting Started Section */}
       <GettingStarted />
 
+      {/* About Section */}
       <div id="about" style={{ padding: "50px 0" }}>
         <AboutPage />
       </div>
 
+      {/* Course Content Section */}
       <CourseContent />
 
       {/* Partners Section */}
@@ -207,7 +211,7 @@ export default function LandingPage() {
         className="container text-center"
         style={{ padding: "50px 0", marginTop: "-10px" }}
       >
-        {/* Content */}
+        {/* Future partners content */}
       </div>
 
       {/* WhatsApp Floating Button */}
@@ -234,6 +238,7 @@ export default function LandingPage() {
         <i className="glyphicon glyphicon-comment"></i>
       </a>
 
+      {/* Footer */}
       <Footer />
     </div>
   );
