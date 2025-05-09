@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import bankersAddaLogo from "../assets/bankersadda.png";
-import sscAddaLogo from "../assets/sscadda.png";
-import Tnpsc from "../assets/tnpsc course.jpg";
-import Railway from "../assets/Railway-Exams.jpg";
+import bankersAddaLogo from "../assets/bank-logo.jpg";
+import sscAddaLogo from "../assets/ssc-logo.jpeg";
+import Tnpsc from "../assets/tnpsc-logo.jpg";
+import Railway from "../assets/rrb-logo.jpg";
 import tnusrb from "../assets/TNUSRB.webp";
 import neet from "../assets/neet.avif";
 import Footer from "./Footer";

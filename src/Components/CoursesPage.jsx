@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import bankersAddaLogo from "../assets/bankersadda.png";
-import sscAddaLogo from "../assets/sscadda.png";
-import poweredBy from "../assets/Powered_20250418_192204_0000.jpg";
-import Tnpsc from "../assets/tnpsc course.jpg";
-import Railway from "../assets/Railway-Exams.jpg";
+import bankersAddaLogo from "../assets/bank-logo.jpg";
+import sscAddaLogo from "../assets/ssc-logo.jpeg";
+import Tnpsc from "../assets/tnpsc-logo.jpg";
+import Railway from "../assets/rrb-logo.jpg";
 import tnusrb from "../assets/TNUSRB.webp";
 import neet from "../assets/neet.avif";
 import Footer from "./Footer";
-import screen1 from "../assets/screen.png";
+import screen1 from "../assets/spark-logo.png";
 
 
 const courses = [
@@ -77,17 +76,19 @@ export default function CoursesPage() {
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
                       </button>
-                      <a className="navbar-brand" href="#home">
-                        <img
-                          src={screen1}
-                          alt="Logo"
-                          style={{
-                            width: "220px",
-                            marginTop: "-15px",
-                            display: "inline-block",
-                          }}
-                        />
-                      </a>
+                          <a className="navbar-brand" href="#home" style={{ display: "flex", alignItems: "center" }}>
+                       <img
+                         src={screen1}
+                         alt="Logo"
+                         style={{
+                           width: "60px",
+                           marginTop: "10px",
+                           display: "inline-block",
+                           marginRight: "10px", // space between image and text
+                         }}
+                       />
+                       <h4 style={{ margin: 0, fontWeight: "bold",color:"red"}}>Spark Academy</h4>
+                     </a>
                     </div>
                     <div className="collapse navbar-collapse" id="myNavbar">
                       <ul className="nav navbar-nav navbar-right">

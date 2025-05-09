@@ -1,5 +1,5 @@
 import React from 'react';
-import screen1 from "../assets/screen.png";
+import screen1 from "../assets/spark-logo.png";
  // Only for card top borders
 
 
@@ -20,17 +20,19 @@ export default function CourseDetails() {
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                 </button>
-                <a className="navbar-brand" href="#home">
-                  <img
-                    src={screen1}
-                    alt="Logo"
-                    style={{
-                      width: "220px",
-                      marginTop: "-15px",
-                      display: "inline-block",
-                    }}
-                  />
-                </a>
+                   <a className="navbar-brand" href="#home" style={{ display: "flex", alignItems: "center" }}>
+                <img
+                  src={screen1}
+                  alt="Logo"
+                  style={{
+                    width: "60px",
+                    marginTop: "10px",
+                    display: "inline-block",
+                    marginRight: "10px", // space between image and text
+                  }}
+                />
+                <h4 style={{ margin: 0, fontWeight: "bold",color:"red"}}>Spark Academy</h4>
+              </a>
               </div>
               <div className="collapse navbar-collapse" id="myNavbar">
                 <ul className="nav navbar-nav navbar-right">

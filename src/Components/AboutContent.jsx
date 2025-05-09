@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import screen1 from "../assets/screen.png";
+import screen1 from "../assets/spark-logo.png";
 import image2 from "../assets/image.png";
 
 export default function AboutContent() {
@@ -66,7 +66,6 @@ export default function AboutContent() {
               />
             </a>
           </div>
-
           <div className="collapse navbar-collapse" id="myNavbar">
             <ul className="nav navbar-nav navbar-right">
               <li className="active"><a href="/">Home</a></li>
@@ -97,7 +96,6 @@ export default function AboutContent() {
           About Spark IAS Academy
         </h1>
         <hr />
-
         <div className="row">
           <div className="col-md-6 text-justify">
             <h2 className="lead">
