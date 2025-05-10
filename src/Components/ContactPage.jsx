@@ -1,162 +1,249 @@
 import React, { useState } from "react";
-import screen1 from "../assets/spark-logo.png";
+import screen1 from "../assets/spark_logo_1.png";
+
+
 export default function ContactPage() {
+   const [formData, setFormData] = useState({
+    name: '',
+    course: '',
+    phone: '',
+    email: '',
+    demo: '',
+    message: '',
+  });
+
   const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('Submitted:', formData);
     setSubmitted(true);
-
-    // Optionally reset the form after submission
-    e.target.reset();
-
-    // You can clear the message after a delay if needed
-    setTimeout(() => setSubmitted(false), 3000); // message disappears after 3 seconds
+    setFormData({
+      name: '',
+      course: '',
+      phone: '',
+      email: '',
+      demo: '',
+      message: '',
+    });
   };
 
   return (
-     <div>
-       {/* Navbar */}
-            <nav className="navbar navbar-default" style={{ marginBottom: "0px" }}>
-              <div className="container-fluid">
-                <div className="navbar-header">
-                  <button
-                    type="button"
-                    className="navbar-toggle"
-                    data-toggle="collapse"
-                    data-target="#myNavbar"
-                  >
-                    <span className="icon-bar"></span>
-                    <span className="icon-bar"></span>
-                    <span className="icon-bar"></span>
-                  </button>
-                     <a className="navbar-brand" href="#home" style={{ display: "flex", alignItems: "center" }}>
-                  <img
-                    src={screen1}
-                    alt="Logo"
-                    style={{
-                      width: "60px",
-                      marginTop: "10px",
-                      display: "inline-block",
-                      marginRight: "10px", // space between image and text
-                    }}
-                  />
-                  <h4 style={{ margin: 0, fontWeight: "bold",color:"red"}}>Spark Academy</h4>
-                </a>
-                </div>
-                <div className="collapse navbar-collapse" id="myNavbar">
-                  <ul className="nav navbar-nav navbar-right">
-                    <li className="active"><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/course">Courses</a></li>
-                    <li><a href="/partners">Partnerships</a></li>
-                    <li>
-                    <a
+    <div>
+      {/* Navbar */}
+      <nav className="navbar navbar-default" style={{ marginBottom: "0px" }}>
+        <div className="container-fluid">
+          <div className="navbar-header">
+            <button
+              type="button"
+              className="navbar-toggle"
+              data-toggle="collapse"
+              data-target="#myNavbar"
+            >
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+            </button>
+            <a
+              className="navbar-brand"
+              href="#home"
+              style={{ display: "flex", alignItems: "center" }}
+            >
+              <img src={screen1} alt="Logo" style={{ width: "200px", marginTop: "10px", display: "inline-block", marginRight: "10px" }} />
+              
+              {/* <h4 style={{ margin: 0, fontWeight: "bold", color: "red" }}>
+                Spark Academy
+              </h4> */}
+            </a>
+          </div>
+          <div className="collapse navbar-collapse" id="myNavbar">
+            <ul className="nav navbar-nav navbar-right">
+              <li className="active"><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/course">Courses</a></li>
+              <li><a href="/partners">Partnerships</a></li>
+              <li>
+                <a
                   href="/contact"
                   className="btn btn-danger btn-lg navbar-btn contact"
                   style={{
                     padding: "8px 20px",
                     marginLeft: "15px",
                     borderRadius: "30px",
-                    
-                  
                   }}
                 >
                   Contact us
                 </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
-      <div id="contact" className="container" style={{ padding: "60px 15px" }}>
-      <h2 className="text-center" style={{ fontWeight: "bold", marginBottom: "40px" }}>
-        Contact Us
-      </h2>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      {/* Contact Form Section */}
+      <div className="container mt-5">
+         {/* Internal Style Section */}
+      <style>{`
+        .custom-select-course {
+          font-size: 1.2rem;
+          padding: 5px 15px;
+          border-radius: 8px;
+          border: 2px solid #ced4da;
+          background-color: #f9f9f9;
+          color: #333;
+        }
+
+        .custom-select-course:focus {
+          border-color: #dc3545;
+          box-shadow: 0 0 0 0.2rem rgba(220,53,69,.25);
+          outline: none;
+        }
+      `}</style>
+      <h2 className="text-center mb-4 fs-1 fw-bold">Contact Us</h2>
       <div className="row">
-        {/* Contact Form */}
         <div className="col-md-6">
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="name">Name:</label>
+          <form onSubmit={handleSubmit} className="fs-5">
+            <div className="form-group mb-3">
               <input
                 type="text"
-                className="form-control"
-                id="name"
-                placeholder="Enter your name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="form-control fs-5"
+                placeholder="NAME"
                 required
               />
             </div>
-            <div className="form-group">
-              <label htmlFor="email">Email address:</label>
+              <div className="form-group mb-3">
+              <select
+                name="course"
+                value={formData.course}
+                onChange={handleChange}
+                className="form-control custom-select-course"
+                required
+              >
+                <option value="">SELECT YOUR COURSE</option>
+                <option value="TNPSC">TNPSC</option>
+                <option value="SSC">SSC</option>
+                <option value="BANKING">BANKING</option>
+                <option value="RAILWAYS">RAILWAYS</option>
+                <option value="POLICE">POLICE</option>
+                <option value="NEET">NEET</option>
+                <option value="OTHERS">OTHERS</option>
+              </select>
+            </div>
+
+            <div className="form-group mb-3">
+              <input
+                type="text"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                className="form-control fs-5"
+                placeholder="PHONE NO"
+                required
+              />
+            </div>
+
+            <div className="form-group mb-3">
               <input
                 type="email"
-                className="form-control"
-                id="email"
-                placeholder="Enter your email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="form-control fs-5"
+                placeholder="EMAIL"
                 required
               />
             </div>
-            <div className="form-group">
-              <label htmlFor="message">Message:</label>
+
+            <div className="form-group mb-3">
+              <label className="form-label fw-semibold fs-5">Do you want demo class?</label>
+              <div>
+                <div className="form-check form-check-inline">
+                  <input
+                    type="radio"
+                    name="demo"
+                    value="Yes"
+                    checked={formData.demo === 'Yes'}
+                    onChange={handleChange}
+                    className="form-check-input"
+                    id="demoYes"
+                    required
+                  />
+                  <label className="form-check-label fs-5" htmlFor="demoYes">
+                    Yes
+                  </label>
+                </div>
+                <div className="form-check form-check-inline">
+                  <input
+                    type="radio"
+                    name="demo"
+                    value="No"
+                    checked={formData.demo === 'No'}
+                    onChange={handleChange}
+                    className="form-check-input"
+                    id="demoNo"
+                    required
+                  />
+                  <label className="form-check-label fs-5" htmlFor="demoNo">
+                    No
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div className="form-group mb-3">
               <textarea
-                className="form-control"
-                id="message"
-                rows="5"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                className="form-control fs-5"
+                rows="4"
                 placeholder="Your message"
                 required
               ></textarea>
             </div>
-            <button type="submit" className="btn btn-danger btn-block" style={{ borderRadius: "30px" }}>
-              Send Message
+
+            <button type="submit" className="btn btn-danger w-100 fs-5" style={{ borderRadius: '30px' }}>
+              Submit
             </button>
+
             {submitted && (
-              <div className="alert alert-success mt-3" role="alert">
-                Thank you for submitting!
+              <div className="alert alert-success mt-3 fs-5">
+                Thank you! Your message has been submitted.
               </div>
             )}
           </form>
         </div>
 
-        {/* Contact Details & Map */}
-        <div className="col-md-6">
-          <div
-            style={{
-              backgroundColor: "#f9f9f9",
-              padding: "25px",
-              borderRadius: "10px",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-              marginBottom: "20px",
-            }}
-          >
-            <h4 style={{ marginBottom: "15px", fontWeight: "bold" }}>Contact Details</h4>
-            <p>
-              <i className="glyphicon glyphicon-map-marker"></i> Tiruttani, Tamil Nadu, India
-            </p>
-            <p>
-              <i className="glyphicon glyphicon-envelope"></i> sparkiastrt@gmail.com
-            </p>
-            <p>
-              <i className="glyphicon glyphicon-earphone"></i> 7845239889 / 9150509889
-            </p>
+        <div className="col-md-6 fs-5">
+          <div className="p-4 bg-light rounded shadow-sm mb-3">
+            <h5 className="fw-bold">Contact Details</h5>
+            <p className="mb-1">📍 Tiruttani, Tamil Nadu, India</p>
+            <p className="mb-1">📧 sparkiastrt@gmail.com</p>
+            <p>📞 7845239889 / 9150509889</p>
           </div>
-
-          {/* Embedded Map */}
-          <div style={{ borderRadius: "10px", overflow: "hidden", boxShadow: "0 2px 10px rgba(0,0,0,0.1)" }}>
+          <div className="rounded overflow-hidden shadow-sm">
             <iframe
-              title="Google Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15549.185742318666!2d79.6125488!3d13.1813034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad5a3f5e2de003%3A0x1e7f34a788ea64!2sTiruttani%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1617946163995!5m2!1sen!2sin"
+              title="Spark Academy Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15560.555181088104!2d79.60007965!3d13.16711995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52ee612bf2e5c9%3A0x94f121a4e1791d92!2sTiruttani%2C%20Tamil%20Nadu%20631009!5e0!3m2!1sen!2sin!4v1681037694895!5m2!1sen!2sin"
               width="100%"
               height="250"
-              frameBorder="0"
               style={{ border: 0 }}
               allowFullScreen=""
               loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
         </div>
       </div>
-    </div>
       </div>
+    </div>
   );
 }

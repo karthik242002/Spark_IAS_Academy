@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import screen1 from "../assets/spark-logo.png";
+import screen1 from "../assets/spark_logo_1.png";
 import image2 from "../assets/image.png";
 
 export default function AboutContent() {
@@ -55,15 +55,8 @@ export default function AboutContent() {
               <span className="icon-bar"></span>
             </button>
             <a className="navbar-brand" href="/">
-              <img
-                src={screen1}
-                alt="Logo"
-                style={{
-                  width: "220px",
-                  marginTop: "-15px",
-                  display: "inline-block",
-                }}
-              />
+              <img src={screen1} alt="Logo" style={{ width: "200px", marginTop: "10px", display: "inline-block", marginRight: "10px" }} />
+              
             </a>
           </div>
           <div className="collapse navbar-collapse" id="myNavbar">

@@ -6,7 +6,7 @@ import Railway from "../assets/rrb-logo.jpg";
 import tnusrb from "../assets/TNUSRB.webp";
 import neet from "../assets/neet.avif";
 import Footer from "./Footer";
-import screen1 from "../assets/spark-logo.png";
+import screen1 from "../assets/spark_logo_1.png";
 
 
 const courses = [
@@ -77,17 +77,7 @@ export default function CoursesPage() {
                         <span className="icon-bar"></span>
                       </button>
                           <a className="navbar-brand" href="#home" style={{ display: "flex", alignItems: "center" }}>
-                       <img
-                         src={screen1}
-                         alt="Logo"
-                         style={{
-                           width: "60px",
-                           marginTop: "10px",
-                           display: "inline-block",
-                           marginRight: "10px", // space between image and text
-                         }}
-                       />
-                       <h4 style={{ margin: 0, fontWeight: "bold",color:"red"}}>Spark Academy</h4>
+                       <img src={screen1} alt="Logo" style={{ width: "200px", marginTop: "10px", display: "inline-block", marginRight: "10px" }} />
                      </a>
                     </div>
                     <div className="collapse navbar-collapse" id="myNavbar">

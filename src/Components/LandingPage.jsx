@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom"; // Needed for active links
 import image1 from "../assets/image1.jpg";
-import screen1 from "../assets/spark-logo.png";
+import screen1 from "../assets/spark_logo_1.png";
 import AboutPage from "./AboutPage";
 import GettingStarted from "./GettingStarted";
 import Footer from "./Footer";
@@ -103,17 +103,7 @@ export default function LandingPage() {
               <span className="icon-bar"></span>
             </button>
             <a className="navbar-brand" href="#home" style={{ display: "flex", alignItems: "center" }}>
-  <img
-    src={screen1}
-    alt="Logo"
-    style={{
-      width: "60px",
-      marginTop: "10px",
-      display: "inline-block",
-      marginRight: "10px", // space between image and text
-    }}
-  />
-  <h4 style={{ margin: 0, fontWeight: "bold",color:"red"}}>Spark Academy</h4>
+  <img src={screen1} alt="Logo" style={{ width: "200px", marginTop: "10px", display: "inline-block", marginRight: "10px" }} />
 </a>
           </div>
           <div className="collapse navbar-collapse" id="myNavbar">
