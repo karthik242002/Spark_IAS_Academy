@@ -7,6 +7,7 @@ import GettingStarted from "./GettingStarted";
 import Footer from "./Footer";
 import CourseContent from "./CourseContent";
 import "./Landingpage.css";
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function LandingPage() {
   const location = useLocation();
@@ -204,26 +205,31 @@ export default function LandingPage() {
 
       {/* WhatsApp Floating Button */}
      <a
-  href="https://wa.me/917845239889"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    position: "fixed",
-    bottom: "20px",
-    left: "20px",
-    backgroundColor: "#25D366",
-    color: "white",
-    padding: "16px",
-    borderRadius: "50%",
-    fontSize: "24px",
-    zIndex: 1000,
-    boxShadow: "0px 4px 12px rgba(0,0,0,0.4)",
-    transition: "all 0.3s ease",
-  }}
-  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#20b358")}
-  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#25D366")}
->
-  <i className="fa-brands fa-whatsapp"></i>
+   href="https://wa.me/919150509889"
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        position: "fixed",
+        bottom: "20px",
+        left: "20px",
+        backgroundColor: "#25D366",
+        color: "white",
+        padding: "12px 20px",
+        borderRadius: "50px",
+        fontSize: "24px",
+        zIndex: 1000,
+        boxShadow: "0px 4px 12px rgba(0,0,0,0.4)",
+        transition: "all 0.3s ease",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: "8px"
+      }}
+      onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#20b358")}
+      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#25D366")}
+    >
+      <FaWhatsapp /> 
+      <span style={{ fontSize: "18px" }}>+91 91505 09889</span>
 </a>
       <Footer />
     </div>
