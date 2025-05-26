@@ -40,13 +40,13 @@ app.post("/send-email", async (req, res) => {
     await transporter.sendMail(mailOptions);
     res.status(200).json({ success: true, message: "Email sent successfully" });
   } catch (error) {
-    console.error(error);
+    console.error("Failed to send email:", error);
     res.status(500).json({ success: false, message: "Failed to send email" });
   }
 });
 
-// Start the server
+// Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
